@@ -6,3 +6,4 @@
 ./S1DemoConfigs/ds-S1-config05--demo.xml: NOT PASSED!
 ./S1DemoConfigs/ds-S1-config06--demo.xml: NOT PASSED!
 ./S1DemoConfigs/ds-S1-config07--demo.xml: NOT PASSED!
+./S1DemoConfigs/ds-S1-config08--demo.xml: NOT PASSED!
