@@ -1,0 +1,25 @@
+# ds-sim server 14-Feb, 2022 @ MQ - client-server
+# Server-side simulator started with './ds-server -c ./S1DemoConfigs/ds-S1-config02--demo.xml -v brief -n'
+# Waiting for connection to port 50000 of IP address 127.0.0.1
+RCVD HELO
+SENT OK
+RCVD AUTH nihir
+# Welcome  nihir!
+# The system information can be read from 'ds-system.xml'
+SENT OK
+RCVD REDY
+SENT JOBN 28 0 1401 2 1800 3300
+RCVD QUIT
+SENT QUIT
+# -----------[ Jobs in the waiting queue ]-----------
+# Job 0 submitted at 28...
+# ---------------------------------------------------
+# --------[ Jobs created and yet, submitted ]--------
+# ---------------------------------------------------
+# -------------------------------------------------------------------------------------
+# 0 unknown servers used with a utilisation of 0.00 at the cost of $0.00
+# 0 mysterious servers used with a utilisation of 0.00 at the cost of $0.00
+# ==================================== [ Summary ] ====================================
+# actual simulation end time: 0, #jobs: 0 (failed 0 times)
+# total #servers used: 0, avg util: 0.00% (ef. usage: 0.00%), total cost: $0.00
+# avg waiting time: 0, avg exec time: 0, avg turnaround time: 0
