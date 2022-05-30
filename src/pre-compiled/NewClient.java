@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class NewClient {
     private static boolean firstLoop = true;// to ensure that the number of cores doesnt change
     private static int serverPicker = 0;// to iterate for the job scheduling part
-
+    
     public static void main(String[] args) {
         try {
             Socket s = new Socket("localhost", 50000);// making and starting the socket for the connection
@@ -28,7 +28,7 @@ public class NewClient {
             String str1 = (String) in.readLine();// taking in input from the server and changing into string
             System.out.println(str1);// printing out the message from the server which will be ok
             // Handshake is done
-            String Largest_type = null;// making a string that will hold the largest server type
+            String Largest_type = null;// making a string that will hold the laplete Project Documention/Sponsor MarkAssignmentrgest server type
             ArrayList<Integer> largest_serverID = new ArrayList<Integer>();// this is basically an arraylist that will
                                                                            // hold all the ids of the largest server
                                                                            // type (a safety measuere if the id dont all
@@ -43,6 +43,7 @@ public class NewClient {
             String looper = str1.substring(0, 4);// Only taking the first four chars of the message as that is all we
                                                  // need to find out what type of message is it
             ArrayList<String> jobList = new ArrayList<String>();
+            int j=0;
             while (!looper.equals("NONE")) {// using the previous line of code and checking if it had returned NONE
                 String first=null;                            // which means the server doesnt have anything to do for us
                 jobList.add(str1);
@@ -69,48 +70,34 @@ public class NewClient {
                     for (int i = 0; i < nRecs; i++) {
                         str1 = (String) in.readLine();// taking in server details
                         System.out.println(str1);// printing out the server details
-                        String[] splitter = str1.split(" ");// splitting the server details and putting in an array
-                        int core = Integer.parseInt(splitter[4]);// taking out the number of cores
-                        String type=splitter[0];
-                        int id = Integer.parseInt(splitter[1]);// taking out the ID
-                        int memory =Integer.parseInt(splitter[5]);
-                        if(first.equals(null)){
-                        first=splitter[1];
-                        largest_serverID.clear();
-                        largest_serverID.add(id);
-                        }
-                        else if(type.equals(first)){
-                            largest_serverID.add(id);
-                        }
+                        jobList.add(str1);
 
 
                     }
+                    ArrayList<String> newList= new ArrayList<String>();
+                    
+                    // for(int i=0; i<jobList.size();i++){
+                    //     String currentJob= jobList.get(i);
+                    //     String [] spliiter= currentJob.split(" ");
+                    //     if (i==0){
+                    //         String maxCores=
+                    //     }
+
+                    
+
                     dout.write(("OK\n").getBytes());// sending OK to the server
                     str1 = (String) in.readLine();// taking in input from the server
                     System.out.println(str1);// printing out the reply
-                    if (serverPicker < largest_serverID.size()) {//conditional for the job scheduling to iterate through the servers
-                        // dout.write(("EJWT "+first+" "+serverPicker+"\n").getBytes());
-                        // str1=(String) in.readLine();
-                        // int wait=Integer.parseInt(str1);
-                        // if()
-
-                        dout.write(
-                                ("SCHD " + jobDetails[2] + " " + first + " " + largest_serverID.get(serverPicker)//scheduling a job to the server using the jobDetails from earlier, mad using server picker to iterate though largest_serverID 
-                                        + "\n").getBytes());
-                        str1 = (String) in.readLine();//taking in the reply to the scheduled job
-                        System.out.println(str1);//printing the reply
-                        serverPicker++;//adding the iterator
-                    }
-                    if (serverPicker > (largest_serverID.size()) - 1) {//when the iterator is either the size of the ID pool or more
-                        serverPicker = 0;//resetting the iterator to zero
-                    }
+                    String [] details= 
+                    
+                    
                 }
 
                 dout.write(("REDY\n").getBytes());// sending ready so that the server send us another task
                 str1 = (String) in.readLine();// taking in the response
                 looper = str1.substring(0, 4);// splitting and storing the first four characters as to check if it is
                                               // NONE or JOBN or neither
-                firstLoop = false;// setting the first loop to false so we only sort through the servers once
+                
             }
             dout.write(("QUIT\n").getBytes());// Sending termination command to the server
             str1 = (String) in.readLine();// taking in their termination message
