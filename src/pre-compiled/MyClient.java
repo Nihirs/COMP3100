@@ -32,9 +32,9 @@ public class MyClient {
             str1 = (String) in.readLine();//Reading to learn the message the server has sent us
             System.out.println(str1);//Printing out the output which will be the JOBN or something else 
             String looper = str1.substring(0, 4);//Only taking the first four chars of the message as that is all we need to find out what type of message is it
-
+            ArrayList<String> jobList=new ArrayList<String>();
             while (!looper.equals("NONE")) {//using the previous line of code and checking if it had returned NONE which means the server doesnt have anything to do for us
-
+                jobList.add(str1);
                 String[] jobDetails = str1.split(" ");//splitting the earlier message and putting all its attribute into an array
                 if ((jobDetails[0].toUpperCase()).equals("JOBN")) {//since this stage only concerns with Jobs and their schdeuling we are only taking jobn statements 
                     dout.write(("GETS Capable " + jobDetails[4] + " " + jobDetails[5] + " " + jobDetails[6] + "\n")//putting together a Gets capable command 
